@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>January Workshop | Climatovate Resilience Series</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #1a1a1a; color: white; }
+        .slide {
+            width: 100vw; height: 100vh; display: none; padding: 60px;
+            background: linear-gradient(135deg, #1B5E20 0%, #0d3d12 100%);
+            flex-direction: column; justify-content: center; position: relative;
+        }
+        .slide.active { display: flex; }
+        .slide-number {
+            position: absolute; bottom: 20px; right: 30px;
+            font-size: 0.9rem; opacity: 0.7;
+        }
+        .logo { position: absolute; top: 30px; right: 40px; font-size: 1.5rem; }
+        h1 { font-size: 3rem; margin-bottom: 20px; }
+        h2 { font-size: 2.2rem; margin-bottom: 30px; color: #81C784; }
+        h3 { font-size: 1.8rem; margin-bottom: 25px; }
+        p { font-size: 1.4rem; line-height: 1.8; margin-bottom: 15px; }
+        ul { font-size: 1.3rem; line-height: 2; margin-left: 40px; }
+        li { margin-bottom: 10px; }
+        .highlight { color: #FF6F00; }
+        .center { text-align: center; align-items: center; }
+        .subtitle { font-size: 1.5rem; opacity: 0.9; margin-top: 10px; }
+        .event-bar {
+            display: flex; gap: 40px; justify-content: center;
+            background: #FF6F00; padding: 20px; border-radius: 12px;
+            margin-top: 40px; font-size: 1.2rem;
+        }
+        .pidgin { 
+            background: rgba(255,255,255,0.1); padding: 20px 30px;
+            border-radius: 12px; margin-top: 30px; font-style: italic;
+            border-left: 4px solid #FF6F00;
+        }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .stat-box {
+            background: rgba(255,255,255,0.1); padding: 30px;
+            border-radius: 12px; text-align: center;
+        }
+        .stat-box .number { font-size: 3rem; color: #FF6F00; font-weight: bold; }
+        .stat-box .label { font-size: 1.1rem; margin-top: 10px; opacity: 0.9; }
+        .nav { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 100; }
+        .nav button {
+            padding: 12px 25px; font-size: 1rem; border: none;
+            background: rgba(255,255,255,0.2); color: white;
+            border-radius: 8px; cursor: pointer; transition: background 0.2s;
+        }
+        .nav button:hover { background: #FF6F00; }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide active center">
+        <div class="logo">🌍</div>
+        <p style="font-size: 1.2rem; letter-spacing: 3px; margin-bottom: 20px;">CLIMATOVATE PRESENTS</p>
+        <h1>DE-RISKING TOMORROW</h1>
+        <p class="subtitle">The Climatovate Resilience Series</p>
+        <div style="margin-top: 50px;">
+            <h2 style="color: white;">Introduction to Hyperlocal Climate Intelligence</h2>
+            <p>January 2026</p>
+        </div>
+        <p style="margin-top: 60px; font-size: 1rem; opacity: 0.7;">#ClimatovateResilience</p>
+        <div class="slide-number">1/12</div>
+    </div>
+</body>
+</html>
+
+    <!-- Slide 2: Welcome -->
+    <div class="slide">
+        <div class="logo">🌍</div>
+        <h2>Welcome! | Ẹ ku abọ! | Sannu da zuwa!</h2>
+        <ul>
+            <li>📹 This session is being recorded</li>
+            <li>🎤 Please mute yourself when not speaking</li>
+            <li>💬 Use the chat for questions</li>
+            <li>🌐 English & Pidgin support available</li>
+        </ul>
+        <div class="pidgin">
+            💡 If your network dey shake, off your video make e better!
+        </div>
+        <div class="slide-number">2/12</div>
+    </div>
+
+    <!-- Slide 3: Agenda -->
+    <div class="slide">
+        <div class="logo">🌍</div>
+        <h2>Today's Agenda</h2>
+        <ul>
+            <li><span class="highlight">1.</span> What is Hyperlocal Climate Intelligence? — 15 mins</li>
+            <li><span class="highlight">2.</span> Why It Matters for Nigeria — 15 mins</li>
+            <li><span class="highlight">3.</span> Live Platform Demo — 20 mins</li>
+            <li><span class="highlight">4.</span> Q&A Session — 15 mins</li>
+            <li><span class="highlight">5.</span> Ground-Truthing Survey — 5 mins</li>
+        </ul>
+        <p style="margin-top: 30px; opacity: 0.8;">Total: ~70 minutes</p>
+        <div class="slide-number">3/12</div>
+    </div>
+
+    <!-- Slide 4: About Climatovate -->
+    <div class="slide">
+        <div class="logo">🌍</div>
+        <h2>Who We Are</h2>
+        <p>Climatovate provides <span class="highlight">hyperlocal climate intelligence</span> for Nigerian communities and businesses.</p>
+        <div class="two-col" style="margin-top: 40px;">
+            <div class="stat-box">
+                <div class="number">🌍</div>
+                <div class="label">Real-time weather data</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">📊</div>
+                <div class="label">Risk assessment tools</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">⚠️</div>
+                <div class="label">Early warning systems</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">📱</div>
+                <div class="label">Mobile-first solutions</div>
+            </div>
+        </div>
+        <div class="slide-number">4/12</div>
+    </div>
+
+    <!-- Slide 5: State Spotlight -->
+    <div class="slide">
+        <div class="logo">🌍</div>
+        <h2>Today's Focus: Lagos, Kano & Rivers</h2>
+        <div class="two-col" style="margin-top: 30px;">
+            <div>
+                <h3>Key Climate Stats</h3>
+                <ul>
+                    <li><span class="highlight">Lagos:</span> 1,500mm annual rainfall</li>
+                    <li><span class="highlight">Kano:</span> 800mm annual rainfall</li>
+                    <li><span class="highlight">Rivers:</span> 2,400mm annual rainfall</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Primary Risks</h3>
+                <ul>
+                    <li>🌊 Coastal flooding (Lagos, Rivers)</li>
+                    <li>☀️ Extreme heat (Kano)</li>
+                    <li>💨 Air quality issues (All)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="pidgin">
+            💡 Wetin dey happen for your area fit different from another state!
+        </div>
+        <div class="slide-number">5/12</div>
+    </div>
+    <
+!-- Slide 6: What is Hyperlocal -->
+    <div class="slide">
+        <div class="logo">🌍</div>
+        <h2>What is Hyperlocal Climate Intelligence?</h2>
+        <p>Climate data specific to <span class="highlight">your exact location</span> — not just your country or state.</p>
+        <div class="two-col" style="margin-top: 40px;">
+            <div class="stat-box">
+                <div class="number">🌐</div>
+                <div class="label">Traditional: "Nigeria will experience rainfall"</div>
+            </div>
+            <div class="stat-box" style="border: 2px solid #FF6F00;">
+                <div class="number">📍</div>
+                <div class="label">Hyperlocal: "Ikeja LGA expects 45mm rain Thursday 2-6pm"</div>
+            </div>
+        </div>
+        <div class="pidgin">
+            💡 E be like difference between "rain go fall" and "rain go fall for your street by 3pm"!
+        </div>
+        <div class="slide-number">6/12</div>
+    </div>
+
+    <!-- Slide 7: Why It Matters -->
+    <div class="slide">
+        <div class="logo">🌍</div>
+        <h2>Why Hyperlocal Matters for Nigeria</h2>
+        <div class="two-col">
+            <div>
+                <h3 style="color: #81C784;">The Challenge</h3>
+                <ul>
+                    <li>Nigeria spans 923,768 km²</li>
+                    <li>6 distinct climate zones</li>
+                    <li>Weather varies dramatically by LGA</li>
+                    <li>Generic forecasts miss local risks</li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color: #FF6F00;">The Solution</h3>
+                <ul>
+                    <li>LGA-level forecasting</li>
+                    <li>Real-time local alerts</li>
+                    <li>Community-verified data</li>
+                    <li>Actionable insights</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-number">7/12</div>
+    </div>
+
+    <!-- Slide 8: Use Cases -->
+    <div class="slide">
+        <div class="logo">🌍</div>
+        <h2>Who Benefits?</h2>
+        <ul>
+            <li>👨‍🌾 <span class="highlight">Farmers:</span> Know exactly when to plant, irrigate, harvest</li>
+            <li>🏦 <span class="highlight">Insurers:</span> Accurate risk assessment for parametric products</li>
+            <li>🚛 <span class="highlight">Logistics:</span> Route planning around weather disruptions</li>
+            <li>🏥 <span class="highlight">Health:</span> Predict disease outbreaks linked to weather</li>
+            <li>🏛️ <span class="highlight">Government:</span> Early warning and disaster response</li>
+        </ul>
+        <div class="pidgin">
+            💡 Whether you be farmer, business owner, or government — this data fit help you!
+        </div>
+        <div class="slide-number">8/12</div>
+    </div>
+
+    <!-- Slide 9: Demo Placeholder -->
+    <div class="slide center">
+        <div class="logo">🌍</div>
+        <h1>🖥️ Live Platform Demo</h1>
+        <p class="subtitle">Let's explore real-time climate data for your area</p>
+        <div style="margin-top: 50px; padding: 40px; background: rgba(255,255,255,0.1); border-radius: 12px;">
+            <p style="font-size: 1.2rem;">Demo will show:</p>
+            <ul style="text-align: left; margin-top: 20px;">
+                <li>Real-time weather dashboard</li>
+                <li>LGA-specific forecasts</li>
+                <li>Risk alerts and notifications</li>
+                <li>Historical data analysis</li>
+            </ul>
+        </div>
+        <div class="slide-number">9/12</div>
+    </div>
+    
+<!-- Slide 10: Mini Challenge -->
+    <div class="slide">
+        <div class="logo">🌍</div>
+        <h2>🏆 January Mini-Challenge</h2>
+        <div style="background: rgba(255,111,0,0.2); padding: 30px; border-radius: 12px; border: 2px solid #FF6F00;">
+            <h3 style="color: #FF6F00;">Share Your Local Weather Observation</h3>
+            <p style="margin-top: 20px;">For the next 7 days, observe and share:</p>
+            <ul style="margin-top: 15px;">
+                <li>Daily temperature (hot/warm/cool)</li>
+                <li>Rainfall (yes/no, how much)</li>
+                <li>Any unusual weather events</li>
+            </ul>
+        </div>
+        <p style="margin-top: 30px;"><span class="highlight">How to participate:</span></p>
+        <ul>
+            <li>Post daily in our WhatsApp group</li>
+            <li>Use hashtag #ClimatovateChallenge</li>
+            <li>Include your LGA</li>
+        </ul>
+        <p style="margin-top: 20px;">🎁 Prize: Recognition + Climatovate swag!</p>
+        <div class="slide-number">10/12</div>
+    </div>
+
+    <!-- Slide 11: Survey -->
+    <div class="slide center">
+        <div class="logo">🌍</div>
+        <h2>Help Us Help You 🙏</h2>
+        <p>Before you go, please complete our 2-minute feedback survey</p>
+        <div style="margin-top: 50px; padding: 50px; background: white; border-radius: 20px; color: #1B5E20;">
+            <p style="font-size: 1.5rem; font-weight: bold;">📊 SCAN OR CLICK</p>
+            <div style="font-size: 5rem; margin: 20px 0;">📱</div>
+            <p style="font-size: 1.3rem; color: #FF6F00;">bit.ly/climatovate-jan</p>
+        </div>
+        <div class="pidgin" style="margin-top: 30px;">
+            Your feedback go shape future workshops! Abeg help us. 🙏
+        </div>
+        <div class="slide-number">11/12</div>
+    </div>
+
+    <!-- Slide 12: Thank You -->
+    <div class="slide center">
+        <div class="logo">🌍</div>
+        <h1>Thank You!</h1>
+        <p class="subtitle">E se! | Na gode! | Daalụ!</p>
+        <div style="margin-top: 50px;">
+            <p>📱 WhatsApp: Join our community</p>
+            <p>🐦 Twitter: @Climatovate</p>
+            <p>📧 Email: workshops@climatovate.com</p>
+        </div>
+        <div style="margin-top: 50px; padding: 25px; background: rgba(255,111,0,0.3); border-radius: 12px;">
+            <p><span class="highlight">Next Month:</span> Understanding Weather Forecasts for Farmers</p>
+            <p style="margin-top: 10px;">📅 February 27, 2026</p>
+        </div>
+        <p style="margin-top: 40px; font-size: 1rem; opacity: 0.7;">#ClimatovateResilience #DeRiskingTomorrow</p>
+        <div class="slide-number">12/12</div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav">
+        <button onclick="prevSlide()">← Previous</button>
+        <button onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        function nextSlide() { showSlide(currentSlide + 1); }
+        function prevSlide() { showSlide(currentSlide - 1); }
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+</html>

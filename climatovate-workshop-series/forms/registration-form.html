@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Registration | Climatovate Resilience Series</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+        
+        .header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .header h2 {
+            font-size: 1.1rem;
+            font-weight: normal;
+            opacity: 0.9;
+        }
+        
+        .event-details {
+            background: #FF6F00;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .event-details span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .form-body {
+            padding: 30px;
+        }
+        
+        .pidgin-note {
+            background: #E8F5E9;
+            border-left: 4px solid #1B5E20;
+            padding: 12px 15px;
+            margin-bottom: 25px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #2E7D32;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #333;
+        }
+        
+        label .required {
+            color: #d32f2f;
+        }
+        
+        .helper-text {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 4px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #1B5E20;
+            box-shadow: 0 0 0 3px rgba(27, 94, 32, 0.1);
+        }
+        
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .radio-option,
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .radio-option:hover,
+        .checkbox-option:hover {
+            border-color: #1B5E20;
+            background: #E8F5E9;
+        }
+        
+        .radio-option input,
+        .checkbox-option input {
+            width: 18px;
+            height: 18px;
+            accent-color: #1B5E20;
+        }
+        
+        .section-title {
+            font-size: 1.1rem;
+            color: #1B5E20;
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E9;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #FF6F00 0%, #FF8F00 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 111, 0, 0.4);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f5f5f5;
+            color: #666;
+            font-size: 0.85rem;
+        }
+        
+        .footer a {
+            color: #1B5E20;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                border-radius: 12px;
+            }
+            .header {
+                padding: 20px 15px;
+            }
+            .header h1 {
+                font-size: 1.3rem;
+            }
+            .header h2 {
+                font-size: 0.95rem;
+            }
+            .event-details {
+                flex-direction: column;
+                align-items: center;
+                padding: 12px 15px;
+                gap: 8px;
+            }
+            .event-details span {
+                font-size: 0.85rem;
+            }
+            .form-body {
+                padding: 20px 15px;
+            }
+            .pidgin-note {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }
+            .section-title {
+                font-size: 1rem;
+                margin: 25px 0 12px 0;
+            }
+            .form-group {
+                margin-bottom: 18px;
+            }
+            label {
+                font-size: 0.95rem;
+            }
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            select,
+            textarea {
+                padding: 14px 12px;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+            .radio-option,
+            .checkbox-option {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+            .submit-btn {
+                padding: 16px;
+                font-size: 1rem;
+            }
+            .footer {
+                padding: 15px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Success Modal Mobile */
+        @media (max-width: 480px) {
+            #successModal > div {
+                padding: 25px 20px !important;
+                margin: 15px !important;
+                border-radius: 12px !important;
+            }
+            #successModal > div > div:first-child {
+                font-size: 3rem !important;
+            }
+            #successModal h2 {
+                font-size: 1.2rem !important;
+            }
+            #successModal p {
+                font-size: 0.9rem !important;
+            }
+            #successModal a {
+                padding: 14px 24px !important;
+                font-size: 1rem !important;
+            }
+        }
+        
+        /* Loading Overlay Mobile */
+        @media (max-width: 480px) {
+            #loadingOverlay > div {
+                padding: 25px 30px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div style="font-size: 2.5rem; margin-bottom: 10px;">🌍</div>
+            <h1>DE-RISKING TOMORROW</h1>
+            <h2>The Climatovate Resilience Series</h2>
+        </div>
+        
+        <div class="event-details">
+            <span>📅 January - December 2026</span>
+            <span>🕐 2:00 PM WAT</span>
+            <span>💻 Zoom Webinar</span>
+            <span>🌐 English + Pidgin</span>
+        </div>
+        
+        <div class="form-body">
+            <div class="pidgin-note">
+                Na free workshop o! Come learn how climate dey affect your area. 🌱
+            </div>
+            
+            <form id="registrationForm">
+                <h3 class="section-title">📋 Your Information</h3>
+                
+                <div class="form-group">
+                    <label>Full Name <span class="required">*</span></label>
+                    <input type="text" name="fullName" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label>Email Address <span class="required">*</span></label>
+                    <input type="email" name="email" required placeholder="your.email@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label>Phone Number (WhatsApp) <span class="required">*</span></label>
+                    <input type="tel" name="phone" required placeholder="+234 XXX XXX XXXX">
+                    <p class="helper-text">We go add you to our WhatsApp community</p>
+                </div>
+                
+                <h3 class="section-title">📍 Your Location</h3>
+                
+                <div class="form-group">
+                    <label>State of Residence <span class="required">*</span></label>
+                    <select name="state" required>
+                        <option value="">-- Select your state --</option>
+                        <option value="Abia">Abia</option>
+                        <option value="Adamawa">Adamawa</option>
+                        <option value="Akwa Ibom">Akwa Ibom</option>
+                        <option value="Anambra">Anambra</option>
+                        <option value="Bauchi">Bauchi</option>
+                        <option value="Bayelsa">Bayelsa</option>
+                        <option value="Benue">Benue</option>
+                        <option value="Borno">Borno</option>
+                        <option value="Cross River">Cross River</option>
+                        <option value="Delta">Delta</option>
+                        <option value="Ebonyi">Ebonyi</option>
+                        <option value="Edo">Edo</option>
+                        <option value="Ekiti">Ekiti</option>
+                        <option value="Enugu">Enugu</option>
+                        <option value="FCT">FCT - Abuja</option>
+                        <option value="Gombe">Gombe</option>
+                        <option value="Imo">Imo</option>
+                        <option value="Jigawa">Jigawa</option>
+                        <option value="Kaduna">Kaduna</option>
+                        <option value="Kano">Kano</option>
+                        <option value="Katsina">Katsina</option>
+                        <option value="Kebbi">Kebbi</option>
+                        <option value="Kogi">Kogi</option>
+                        <option value="Kwara">Kwara</option>
+                        <option value="Lagos">Lagos</option>
+                        <option value="Nasarawa">Nasarawa</option>
+                        <option value="Niger">Niger</option>
+                        <option value="Ogun">Ogun</option>
+                        <option value="Ondo">Ondo</option>
+                        <option value="Osun">Osun</option>
+                        <option value="Oyo">Oyo</option>
+                        <option value="Plateau">Plateau</option>
+                        <option value="Rivers">Rivers</option>
+                        <option value="Sokoto">Sokoto</option>
+                        <option value="Taraba">Taraba</option>
+                        <option value="Yobe">Yobe</option>
+                        <option value="Zamfara">Zamfara</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Local Government Area (LGA) <span class="required">*</span></label>
+                    <input type="text" name="lga" required placeholder="Enter your LGA">
+                    <p class="helper-text">This helps us provide hyperlocal climate information</p>
+                </div>
+                
+                <h3 class="section-title">💼 Your Background</h3>
+                
+                <div class="form-group">
+                    <label>Which sector do you work in? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="sector" value="agriculture" required>
+                            <span>🌾 Agriculture/Farming</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="sector" value="insurance">
+                            <span>🏦 Insurance</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="sector" value="logistics">
+                            <span>🚛 Logistics/Transportation</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="sector" value="healthcare">
+                            <span>🏥 Healthcare</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="sector" value="government">
+                            <span>🏛️ Government/Public Sector</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="sector" value="ngo">
+                            <span>🤝 NGO/Development</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="sector" value="education">
+                            <span>📚 Education</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="sector" value="business">
+                            <span>💼 Business/Commerce</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="sector" value="student">
+                            <span>🎓 Student</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="sector" value="other">
+                            <span>📌 Other</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>How did you hear about this workshop? <span class="required">*</span></label>
+                    <select name="source" required>
+                        <option value="">-- Select an option --</option>
+                        <option value="email">📧 Email</option>
+                        <option value="whatsapp">📱 WhatsApp</option>
+                        <option value="twitter">🐦 Twitter/X</option>
+                        <option value="linkedin">💼 LinkedIn</option>
+                        <option value="facebook">📘 Facebook</option>
+                        <option value="instagram">📸 Instagram</option>
+                        <option value="friend">👥 Friend/Colleague</option>
+                        <option value="previous">🔄 Previous Climatovate event</option>
+                        <option value="other">📌 Other</option>
+                    </select>
+                </div>
+                
+                <h3 class="section-title">🌡️ Climate Challenges (Optional)</h3>
+                
+                <div class="form-group">
+                    <label>What climate challenges affect your community most?</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="challenges" value="flooding">
+                            <span>🌊 Flooding</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="challenges" value="drought">
+                            <span>☀️ Drought</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="challenges" value="heat">
+                            <span>🌡️ Extreme heat</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="challenges" value="air">
+                            <span>💨 Air pollution</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="challenges" value="rainfall">
+                            <span>🌧️ Unpredictable rainfall</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="challenges" value="erosion">
+                            <span>🏔️ Erosion</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="challenges" value="fire">
+                            <span>🔥 Fire outbreaks</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="challenges" value="disease">
+                            <span>🦠 Disease outbreaks</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>What do you hope to learn from this workshop?</label>
+                    <textarea name="expectations" rows="3" placeholder="Your answer helps us tailor the content..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Would you like to join our WhatsApp community?</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="whatsapp" value="yes" checked>
+                            <span>✅ Yes, add me!</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="whatsapp" value="no">
+                            <span>❌ No, thank you</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="whatsapp" value="member">
+                            <span>👥 I'm already a member</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Register Now 🚀</button>
+            </form>
+        </div>
+        
+        <div class="footer">
+            <p>Questions? Email: <a href="mailto:infoclimatovate@gmail.com">infoclimatovate@gmail.com</a></p>
+            <p style="margin-top: 10px;">© 2026 Climatovate LTD | #ClimatovateResilience</p>
+        </div>
+    </div>
+    
+    <!-- Success Modal -->
+    <div id="successModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+         background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 40px; border-radius: 16px; max-width: 450px; margin: 20px; text-align: center;">
+            <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
+            <h2 style="color: #1B5E20; margin-bottom: 15px;">Registration Successful!</h2>
+            <p style="color: #333; margin-bottom: 20px; line-height: 1.6;">
+                Thank you for registering! You will receive a confirmation email shortly.
+            </p>
+            <p style="color: #333; margin-bottom: 25px; line-height: 1.6;">
+                <strong>Join our WhatsApp Channel</strong> to stay updated with workshop reminders and climate tips!
+            </p>
+            <a href="https://whatsapp.com/channel/0029Vb7AtAUEawdyHh81Tc25" target="_blank"
+               style="display: inline-block; background: #25D366; color: white; padding: 15px 30px; 
+                      border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem;">
+                📱 Join WhatsApp Channel
+            </a>
+            <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
+                See you on January 30, 2026! 🌍
+            </p>
+        </div>
+    </div>
+    
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+         background: rgba(0,0,0,0.5); z-index: 999; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 30px 50px; border-radius: 12px; text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 15px;">⏳</div>
+            <p style="color: #333;">Submitting your registration...</p>
+        </div>
+    </div>
+    
+    <script>
+        // WhatsApp Channel Link
+        const WHATSAPP_CHANNEL = 'https://whatsapp.com/channel/0029Vb7AtAUEawdyHh81Tc25';
+        
+        // Email configuration - Using EmailJS (free tier: 200 emails/month)
+        // You need to set up EmailJS at https://www.emailjs.com/
+        const EMAILJS_SERVICE_ID = 'service_at6njuf';
+        const EMAILJS_TEMPLATE_ID = 'template_f5nuobk';
+        const EMAILJS_PUBLIC_KEY = 'ftKtuMNLtkt29bw5x';
+        
+        document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Show loading
+            document.getElementById('loadingOverlay').style.display = 'flex';
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Collect checkboxes
+            const challenges = Array.from(document.querySelectorAll('input[name="challenges"]:checked'))
+                .map(cb => cb.value);
+            data.challenges = challenges.join(', ') || 'None selected';
+            
+            // Format data for email
+            const emailContent = {
+                to_email: 'infoclimatovate@gmail.com',
+                subject: `New Workshop Registration: ${data.fullName}`,
+                full_name: data.fullName,
+                email: data.email,
+                phone: data.phone,
+                state: data.state,
+                lga: data.lga,
+                sector: data.sector,
+                source: data.source,
+                challenges: data.challenges,
+                expectations: data.expectations || 'Not provided',
+                whatsapp_interest: data.whatsapp,
+                registration_date: new Date().toLocaleString('en-NG', { timeZone: 'Africa/Lagos' }),
+                workshop: 'January 2026 - Introduction to Hyperlocal Climate Intelligence'
+            };
+            
+            console.log('Registration Data:', emailContent);
+            
+            // Send via EmailJS
+            try {
+                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailContent, EMAILJS_PUBLIC_KEY);
+                console.log('Email sent successfully!');
+            } catch (error) {
+                console.error('EmailJS error:', error);
+                alert('Registration saved! Email notification may be delayed.');
+            }
+            
+            // Hide loading
+            document.getElementById('loadingOverlay').style.display = 'none';
+            
+            // Show success modal with WhatsApp link
+            document.getElementById('successModal').style.display = 'flex';
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Close modal when clicking outside
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+    </script>
+    
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</body>
+</html>

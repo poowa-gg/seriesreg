@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Feedback | Climatovate</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 550px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        .header h1 { font-size: 1.3rem; margin-bottom: 5px; }
+        .header p { opacity: 0.9; font-size: 0.95rem; }
+        .form-body { padding: 25px; }
+        .pidgin-note {
+            background: #E8F5E9;
+            border-left: 4px solid #1B5E20;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #2E7D32;
+        }
+        
+        /* Mobile Responsive Styles */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                border-radius: 12px;
+            }
+            .header {
+                padding: 20px 15px;
+            }
+            .header h1 {
+                font-size: 1.1rem;
+            }
+            .header p {
+                font-size: 0.85rem;
+            }
+            .form-body {
+                padding: 20px 15px;
+            }
+            .pidgin-note {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+        }
+        
+        /* Success Modal Mobile */
+        @media (max-width: 480px) {
+            #successModal > div {
+                padding: 25px 20px !important;
+                margin: 15px !important;
+                border-radius: 12px !important;
+            }
+            #successModal > div > div:first-child {
+                font-size: 3rem !important;
+            }
+            #successModal h2 {
+                font-size: 1.2rem !important;
+            }
+            #successModal p {
+                font-size: 0.9rem !important;
+                line-height: 1.5 !important;
+            }
+            #successModal a {
+                padding: 14px 20px !important;
+                font-size: 0.95rem !important;
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div style="font-size: 2rem; margin-bottom: 8px;">📊</div>
+            <h1>Workshop Feedback</h1>
+            <p>Ground-Truthing Survey | 2 Minutes</p>
+        </div>
+        <div class="form-body">
+            <div class="pidgin-note">
+                Your feedback go help us serve your community better. E se! 🙏
+            </div>
+            <form id="surveyForm"></form>
+        </div>
+        <div style="text-align: center; padding: 15px; background: #f5f5f5; font-size: 0.85rem; color: #666;">
+            Questions? <a href="mailto:infoclimatovate@gmail.com" style="color: #1B5E20;">infoclimatovate@gmail.com</a>
+        </div>
+    </div>
+    
+    <!-- Success Modal -->
+    <div id="successModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+         background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 40px; border-radius: 16px; max-width: 450px; margin: 20px; text-align: center;">
+            <div style="font-size: 4rem; margin-bottom: 20px;">🙏</div>
+            <h2 style="color: #1B5E20; margin-bottom: 15px;">Thank You!</h2>
+            <p style="color: #333; margin-bottom: 20px; line-height: 1.6;">
+                Your feedback helps us improve future workshops and build better climate data for Nigeria.
+            </p>
+            <p style="color: #333; margin-bottom: 25px; line-height: 1.6;">
+                <strong>Stay connected!</strong> Join our WhatsApp Channel for updates and climate tips.
+            </p>
+            <a href="https://whatsapp.com/channel/0029Vb7AtAUEawdyHh81Tc25" target="_blank"
+               style="display: inline-block; background: #25D366; color: white; padding: 15px 30px; 
+                      border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem;">
+                📱 Join WhatsApp Channel
+            </a>
+            <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
+                See you next month! 🌍
+            </p>
+        </div>
+    </div>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</body>
+</html>
+
+<script>
+// Initialize EmailJS
+emailjs.init('ftKtuMNLtkt29bw5x');
+const surveyHTML = `
+<style>
+    .form-group { margin-bottom: 25px; }
+    label { display: block; font-weight: 600; margin-bottom: 10px; color: #333; }
+    .section-title {
+        font-size: 1.1rem; color: #1B5E20; margin: 25px 0 15px 0;
+        padding-bottom: 8px; border-bottom: 2px solid #E8F5E9;
+    }
+    .rating-group { display: flex; gap: 10px; justify-content: space-between; }
+    .rating-option {
+        flex: 1; text-align: center; padding: 15px 10px;
+        border: 2px solid #e0e0e0; border-radius: 8px; cursor: pointer;
+        transition: all 0.2s;
+    }
+    .rating-option:hover { border-color: #1B5E20; background: #E8F5E9; }
+    .rating-option input { display: none; }
+    .rating-option.selected { border-color: #1B5E20; background: #1B5E20; color: white; }
+    .rating-option .number { font-size: 1.5rem; font-weight: bold; }
+    .rating-option .label { font-size: 0.7rem; margin-top: 5px; }
+    .checkbox-group { display: flex; flex-direction: column; gap: 8px; }
+    .checkbox-option {
+        display: flex; align-items: center; gap: 10px;
+        padding: 12px 15px; border: 2px solid #e0e0e0;
+        border-radius: 8px; cursor: pointer; transition: all 0.2s;
+    }
+    .checkbox-option:hover { border-color: #1B5E20; background: #E8F5E9; }
+    .checkbox-option input { width: 18px; height: 18px; accent-color: #1B5E20; }
+    textarea {
+        width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0;
+        border-radius: 8px; font-size: 1rem; font-family: inherit; resize: vertical;
+    }
+    textarea:focus { outline: none; border-color: #1B5E20; }
+    .submit-btn {
+        width: 100%; padding: 15px;
+        background: linear-gradient(135deg, #FF6F00 0%, #FF8F00 100%);
+        color: white; border: none; border-radius: 8px;
+        font-size: 1.1rem; font-weight: 600; cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s; margin-top: 15px;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(255,111,0,0.4); }
+    .helper-text { font-size: 0.85rem; color: #666; margin-top: 8px; }
+    
+    /* Mobile styles for survey form elements */
+    @media (max-width: 480px) {
+        .section-title {
+            font-size: 1rem;
+            margin: 20px 0 12px 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group > label {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .rating-group {
+            gap: 6px;
+        }
+        .rating-option {
+            padding: 10px 6px;
+        }
+        .rating-option .number {
+            font-size: 1.2rem;
+        }
+        .rating-option .label {
+            font-size: 0.6rem;
+        }
+        .checkbox-option {
+            padding: 10px 12px;
+            font-size: 0.9rem;
+        }
+        .checkbox-option input {
+            width: 16px;
+            height: 16px;
+        }
+        textarea {
+            padding: 12px;
+            font-size: 16px; /* Prevents zoom on iOS */
+        }
+        .submit-btn {
+            padding: 16px;
+            font-size: 1rem;
+        }
+        .helper-text {
+            font-size: 0.8rem;
+        }
+    }
+</style>
+
+<h3 class="section-title">📝 Question 1: Workshop Feedback</h3>
+<div class="form-group">
+    <label>How would you rate today's workshop? <span style="color:#d32f2f">*</span></label>
+    <div class="rating-group">
+        <label class="rating-option" onclick="selectRating(this, 1)">
+            <input type="radio" name="rating" value="1" required>
+            <div class="number">1</div>
+            <div class="label">Not useful</div>
+        </label>
+        <label class="rating-option" onclick="selectRating(this, 2)">
+            <input type="radio" name="rating" value="2">
+            <div class="number">2</div>
+            <div class="label">Slightly</div>
+        </label>
+        <label class="rating-option" onclick="selectRating(this, 3)">
+            <input type="radio" name="rating" value="3">
+            <div class="number">3</div>
+            <div class="label">Moderate</div>
+        </label>
+        <label class="rating-option" onclick="selectRating(this, 4)">
+            <input type="radio" name="rating" value="4">
+            <div class="number">4</div>
+            <div class="label">Very useful</div>
+        </label>
+        <label class="rating-option" onclick="selectRating(this, 5)">
+            <input type="radio" name="rating" value="5">
+            <div class="number">5</div>
+            <div class="label">Excellent!</div>
+        </label>
+    </div>
+</div>
+
+<div class="form-group">
+    <label>What was most valuable about today's session?</label>
+    <textarea name="valuable" rows="2" placeholder="One thing wey you learn today..."></textarea>
+</div>
+
+<h3 class="section-title">🌍 Question 2: Ground-Truthing</h3>
+<div class="form-group">
+    <label>In the past 30 days, which climate events have affected your community? <span style="color:#d32f2f">*</span></label>
+    <div class="checkbox-group">
+        <label class="checkbox-option"><input type="checkbox" name="events" value="rainfall"><span>🌧️ Heavy rainfall/flooding</span></label>
+        <label class="checkbox-option"><input type="checkbox" name="events" value="drought"><span>☀️ Drought/water scarcity</span></label>
+        <label class="checkbox-option"><input type="checkbox" name="events" value="heat"><span>🌡️ Extreme heat</span></label>
+        <label class="checkbox-option"><input type="checkbox" name="events" value="air"><span>💨 Poor air quality/harmattan</span></label>
+        <label class="checkbox-option"><input type="checkbox" name="events" value="unpredictable"><span>🌦️ Unpredictable weather</span></label>
+        <label class="checkbox-option"><input type="checkbox" name="events" value="crops"><span>🌾 Crop damage</span></label>
+        <label class="checkbox-option"><input type="checkbox" name="events" value="transport"><span>🚗 Road/transport disruption</span></label>
+        <label class="checkbox-option"><input type="checkbox" name="events" value="health"><span>🏥 Health issues from weather</span></label>
+        <label class="checkbox-option"><input type="checkbox" name="events" value="fire"><span>🔥 Fire outbreak</span></label>
+        <label class="checkbox-option"><input type="checkbox" name="events" value="none"><span>✅ None of the above</span></label>
+    </div>
+</div>
+
+<div class="form-group">
+    <label>Briefly describe the impact (Optional)</label>
+    <textarea name="impact" rows="3" placeholder='Example: "Flooding for my area spoil road for 2 weeks" or "Heat wave affect my poultry farm"'></textarea>
+    <p class="helper-text">Please include your LGA if comfortable sharing.</p>
+</div>
+
+<button type="submit" class="submit-btn">Submit Feedback 🙏</button>
+`;
+
+document.getElementById('surveyForm').innerHTML = surveyHTML;
+
+function selectRating(el, value) {
+    document.querySelectorAll('.rating-option').forEach(opt => opt.classList.remove('selected'));
+    el.classList.add('selected');
+    el.querySelector('input').checked = true;
+}
+
+document.getElementById('surveyForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+    const events = Array.from(document.querySelectorAll('input[name="events"]:checked')).map(cb => cb.value);
+    
+    // Format data for email
+    const emailContent = {
+        to_email: 'infoclimatovate@gmail.com',
+        subject: 'Workshop Feedback - Ground-Truthing Survey',
+        rating: data.rating,
+        most_valuable: data.valuable || 'Not provided',
+        climate_events: events.join(', ') || 'None selected',
+        impact_description: data.impact || 'Not provided',
+        submission_date: new Date().toLocaleString('en-NG', { timeZone: 'Africa/Lagos' }),
+        workshop: 'January 2026 - Introduction to Hyperlocal Climate Intelligence'
+    };
+    
+    console.log('Survey Data:', emailContent);
+    
+    // Send via EmailJS
+    try {
+        await emailjs.send('service_at6njuf', 'template_f5nuobk', emailContent, 'ftKtuMNLtkt29bw5x');
+        console.log('Feedback sent successfully!');
+    } catch (error) {
+        console.error('EmailJS error:', error);
+    }
+    
+    // Show success modal with WhatsApp link
+    document.getElementById('successModal').style.display = 'flex';
+    
+    // Reset form
+    this.reset();
+    document.querySelectorAll('.rating-option').forEach(opt => opt.classList.remove('selected'));
+});
+
+// Close modal when clicking outside
+document.getElementById('successModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        this.style.display = 'none';
+    }
+});
+</script>
