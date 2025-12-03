@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climatovate Resilience Series | De-Risking Tomorrow</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1B5E20 0%, #0d3d12 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .logo { font-size: 4rem; margin-bottom: 20px; }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .subtitle { font-size: 1.3rem; opacity: 0.9; margin-bottom: 30px; }
+        .tagline {
+            background: rgba(255,255,255,0.1);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
+        .btn {
+            display: inline-block;
+            padding: 18px 35px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .btn-primary { background: #FF6F00; color: white; }
+        .btn-secondary { background: #25D366; color: white; }
+        .btn-outline { background: transparent; border: 2px solid white; color: white; }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+        .feature {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .feature h3 { margin-bottom: 10px; font-size: 1.1rem; }
+        .feature p { opacity: 0.85; font-size: 0.9rem; line-height: 1.5; }
+        .schedule {
+            background: rgba(0,0,0,0.2);
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .schedule h2 { margin-bottom: 30px; font-size: 1.8rem; }
+        .next-workshop {
+            background: white;
+            color: #333;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 12px;
+        }
+        .next-workshop h3 { color: #1B5E20; margin-bottom: 15px; }
+        .workshop-details { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 20px 0; }
+        .workshop-details span { display: flex; align-items: center; gap: 5px; }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        .footer a { color: #81C784; }
+        @media (max-width: 480px) {
+            .logo { font-size: 3rem; }
+            h1 { font-size: 1.8rem; }
+            .subtitle { font-size: 1.1rem; }
+            .btn { padding: 15px 25px; font-size: 1rem; width: 100%; text-align: center; }
+            .cta-buttons { flex-direction: column; padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="logo">🌍</div>
+        <h1>DE-RISKING TOMORROW</h1>
+        <p class="subtitle">The Climatovate Resilience Series</p>
+        <div class="tagline">
+            Na free workshop o! Come learn how climate dey affect your area. 🌱
+        </div>
+        <div class="cta-buttons">
+            <a href="forms/registration-form.html" class="btn btn-primary">📝 Register Now</a>
+            <a href="https://whatsapp.com/channel/0029Vb7AtAUEawdyHh81Tc25" target="_blank" class="btn btn-secondary">📱 Join WhatsApp</a>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature">
+            <div class="feature-icon">📍</div>
+            <h3>Hyperlocal Data</h3>
+            <p>Climate intelligence specific to your state and LGA</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🌐</div>
+            <h3>English + Pidgin</h3>
+            <p>Workshops delivered in languages you understand</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">💰</div>
+            <h3>100% Free</h3>
+            <p>No cost to attend, all resources included</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">📹</div>
+            <h3>On-Demand</h3>
+            <p>Can't attend live? Watch recordings anytime</p>
+        </div>
+    </div>
+
+    <div class="schedule">
+        <h2>📅 Next Workshop</h2>
+        <div class="next-workshop">
+            <h3>Introduction to Hyperlocal Climate Intelligence</h3>
+            <div class="workshop-details">
+                <span>📅 January 30, 2026</span>
+                <span>🕐 2:00 PM WAT</span>
+                <span>💻 Zoom</span>
+            </div>
+            <p style="margin-bottom: 20px; color: #666;">Learn how climate data specific to your location can help you make better decisions.</p>
+            <a href="forms/registration-form.html" class="btn btn-primary" style="display: inline-block;">Register Free →</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Climatovate LTD | <a href="mailto:infoclimatovate@gmail.com">infoclimatovate@gmail.com</a></p>
+        <p style="margin-top: 10px;">#ClimatovateResilience #DeRiskingTomorrow</p>
+    </div>
+</body>
+</html>
