@@ -4,148 +4,913 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Climatovate Resilience Series | De-Risking Tomorrow</title>
+    <meta name="description" content="Free monthly climate workshops for Nigerian communities. Learn hyperlocal climate intelligence, get planting guides, and farm management tips.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        :root {
+            --primary: #1B5E20;
+            --primary-dark: #0d3d12;
+            --accent: #FF6F00;
+            --whatsapp: #25D366;
+            --light-green: #E8F5E9;
+            --text: #333;
+            --text-light: #666;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1B5E20 0%, #0d3d12 100%);
-            min-height: 100vh;
-            color: white;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafafa;
+            color: var(--text);
+            line-height: 1.6;
         }
+        
+        /* Hero Section */
         .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 50px 20px 60px;
             text-align: center;
-            padding: 60px 20px;
-            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        
+        .hero-content {
+            max-width: 700px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
-        .logo { font-size: 4rem; margin-bottom: 20px; }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        .subtitle { font-size: 1.3rem; opacity: 0.9; margin-bottom: 30px; }
-        .tagline {
-            background: rgba(255,255,255,0.1);
-            padding: 15px 25px;
-            border-radius: 10px;
-            margin-bottom: 40px;
-            font-style: italic;
+        
+        .logo { font-size: 3.5rem; margin-bottom: 15px; }
+        
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
-        .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
-        .btn {
-            display: inline-block;
-            padding: 18px 35px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
+        
+        .hero .subtitle {
             font-size: 1.1rem;
-            transition: transform 0.2s, box-shadow 0.2s;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            font-weight: 400;
         }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        .btn-primary { background: #FF6F00; color: white; }
-        .btn-secondary { background: #25D366; color: white; }
-        .btn-outline { background: transparent; border: 2px solid white; color: white; }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 900px;
-            margin: 0 auto 50px;
-            padding: 0 20px;
+        
+        .hero-tagline {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
         }
-        .feature {
+        
+        .hero-cta {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255,111,0,0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,111,0,0.5);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+        
+        .btn-outline:hover {
             background: rgba(255,255,255,0.1);
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
+            border-color: white;
         }
-        .feature-icon { font-size: 2.5rem; margin-bottom: 15px; }
-        .feature h3 { margin-bottom: 10px; font-size: 1.1rem; }
-        .feature p { opacity: 0.85; font-size: 0.9rem; line-height: 1.5; }
-        .schedule {
-            background: rgba(0,0,0,0.2);
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .schedule h2 { margin-bottom: 30px; font-size: 1.8rem; }
-        .next-workshop {
-            background: white;
-            color: #333;
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 30px;
-            border-radius: 12px;
-        }
-        .next-workshop h3 { color: #1B5E20; margin-bottom: 15px; }
-        .workshop-details { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 20px 0; }
-        .workshop-details span { display: flex; align-items: center; gap: 5px; }
-        .footer {
-            text-align: center;
-            padding: 30px 20px;
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-        .footer a { color: #81C784; }
-        @media (max-width: 480px) {
-            .logo { font-size: 3rem; }
-            h1 { font-size: 1.8rem; }
-            .subtitle { font-size: 1.1rem; }
-            .btn { padding: 15px 25px; font-size: 1rem; width: 100%; text-align: center; }
-            .cta-buttons { flex-direction: column; padding: 0 20px; }
-        }
-    </style>
+</style>
 </head>
 <body>
-    <div class="hero">
-        <div class="logo">🌍</div>
-        <h1>DE-RISKING TOMORROW</h1>
-        <p class="subtitle">The Climatovate Resilience Series</p>
-        <div class="tagline">
-            Na free workshop o! Come learn how climate dey affect your area. 🌱
-        </div>
-        <div class="cta-buttons">
-            <a href="forms/registration-form.html" class="btn btn-primary">📝 Register Now</a>
-            <a href="https://whatsapp.com/channel/0029Vb7AtAUEawdyHh81Tc25" target="_blank" class="btn btn-secondary">📱 Join WhatsApp</a>
-        </div>
-    </div>
-
-    <div class="features">
-        <div class="feature">
-            <div class="feature-icon">📍</div>
-            <h3>Hyperlocal Data</h3>
-            <p>Climate intelligence specific to your state and LGA of residence</p>
-        </div>
-        <div class="feature">
-            <div class="feature-icon">🌐</div>
-            <h3>English + Pidgin</h3>
-            <p>Workshops delivered in languages you understand</p>
-        </div>
-        <div class="feature">
-            <div class="feature-icon">💰</div>
-            <h3>100% Free</h3>
-            <p>No cost to attend, all resources included</p>
-        </div>
-        <div class="feature">
-            <div class="feature-icon">📹</div>
-            <h3>On-Demand</h3>
-            <p>Can't attend live? Watch recordings anytime</p>
-        </div>
-    </div>
-
-    <div class="schedule">
-        <h2>📅 Next Workshop</h2>
-        <div class="next-workshop">
-            <h3>Introduction to Hyperlocal Climate Intelligence</h3>
-            <div class="workshop-details">
-                <span>📅 January - December</span>
-                <span>🕐 Time: to be communicated</span>
-                <span>💻 venue: to be communicated</span>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo">🌍</div>
+            <h1>DE-RISKING TOMORROW</h1>
+            <p class="subtitle">The Climatovate Resilience Series</p>
+            <div class="hero-tagline">
+                🌱 Na free workshop o! Come learn how climate dey affect your area.
             </div>
-            <p style="margin-bottom: 20px; color: #666;">Learn how climate data specific to your location can help you make better decisions.</p>
-            <a href="forms/registration-form.html" class="btn btn-primary" style="display: inline-block;">Register Free →</a>
+            <div class="hero-cta">
+                <a href="forms/registration-form.html" class="btn btn-primary">📝 Register Free</a>
+                <a href="#whatsapp" class="btn btn-outline">📱 Join Community</a>
+            </div>
         </div>
-    </div>
+    </section>
+</body>
+</html>
 
-    <div class="footer">
-        <p>© 2026 Climatovate LTD | <a href="mailto:infoclimatovate@gmail.com">infoclimatovate@gmail.com</a></p>
-        <p style="margin-top: 10px;">#ClimatovateResilience #DeRiskingTomorrow</p>
-    </div>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Join Our Workshops?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Hyperlocal Data</h3>
+                    <p>Climate intelligence specific to your state and LGA, not generic national forecasts</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>English + Pidgin</h3>
+                    <p>Workshops delivered in languages you understand for maximum impact</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍🌾</div>
+                    <h3>Expert Speakers</h3>
+                    <p>Learn from NEMA, health experts, farmers, and industry professionals</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📹</div>
+                    <h3>Watch Anytime</h3>
+                    <p>Can't attend live? All sessions recorded for on-demand viewing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Workshop Section -->
+    <section class="next-workshop">
+        <div class="container">
+            <div class="workshop-card">
+                <div class="workshop-badge">NEXT WORKSHOP</div>
+                <h2>Introduction to Hyperlocal Climate Intelligence</h2>
+                <p class="workshop-desc">Learn how climate data specific to your location can help you make better decisions for farming, business, and community safety.</p>
+                <div class="workshop-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">📅</span>
+                        <div>
+                            <strong>January 30, 2026</strong>
+                            <small>Last Friday of the month</small>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">🕐</span>
+                        <div>
+                            <strong>2:00 PM WAT</strong>
+                            <small>60-90 minutes</small>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">💻</span>
+                        <div>
+                            <strong>Zoom Webinar</strong>
+                            <small>Link sent after registration</small>
+                        </div>
+                    </div>
+                </div>
+                <a href="forms/registration-form.html" class="btn btn-primary btn-large">Register Now — It's Free! →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Section -->
+    <section class="whatsapp-section" id="whatsapp">
+        <div class="container">
+            <div class="whatsapp-card">
+                <div class="whatsapp-content">
+                    <div class="whatsapp-icon">📱</div>
+                    <h2>Join Our WhatsApp Channel</h2>
+                    <p class="whatsapp-subtitle">Stay connected with 1000+ climate-conscious Nigerians</p>
+                    
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🌱</span>
+                            <div>
+                                <strong>Planting Guides</strong>
+                                <p>Seasonal planting calendars based on your location's weather patterns</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🚜</span>
+                            <div>
+                                <strong>Farm Management Tips</strong>
+                                <p>Best practices for irrigation, pest control, and harvest timing</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🌤️</span>
+                            <div>
+                                <strong>Climate Explanations</strong>
+                                <p>Simple breakdowns of weather forecasts and what they mean for you</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">⚠️</span>
+                            <div>
+                                <strong>Early Warnings</strong>
+                                <p>Flood, drought, and extreme weather alerts before they happen</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="whatsapp-join">
+                        <a href="https://whatsapp.com/channel/0029Vb7AtAUEawdyHh81Tc25" target="_blank" class="btn btn-whatsapp">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            Join WhatsApp Channel
+                        </a>
+                        <p class="or-text">— OR scan QR code —</p>
+                    </div>
+                </div>
+                
+                <div class="qr-section">
+                    <div class="qr-container">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://whatsapp.com/channel/0029Vb7AtAUEawdyHh81Tc25&bgcolor=ffffff&color=1B5E20" 
+                             alt="WhatsApp Channel QR Code" class="qr-code">
+                        <p class="qr-label">Scan with your phone camera</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+section>
+    <!--
+ Workshop Calendar Preview -->
+    <section class="calendar-section">
+        <div class="container">
+            <h2 class="section-title">2026 Workshop Calendar</h2>
+            <p class="section-subtitle">12 months of climate resilience training</p>
+            <div class="calendar-grid">
+                <div class="calendar-item active">
+                    <span class="month">JAN</span>
+                    <span class="topic">Hyperlocal Climate Intelligence</span>
+                </div>
+                <div class="calendar-item">
+                    <span class="month">FEB</span>
+                    <span class="topic">Weather Forecasts for Farmers</span>
+                </div>
+                <div class="calendar-item">
+                    <span class="month">MAR</span>
+                    <span class="topic">Early Warning Systems</span>
+                </div>
+                <div class="calendar-item">
+                    <span class="month">APR</span>
+                    <span class="topic">Climate Risks for Insurers</span>
+                </div>
+                <div class="calendar-item">
+                    <span class="month">MAY</span>
+                    <span class="topic">Smart Logistics</span>
+                </div>
+                <div class="calendar-item">
+                    <span class="month">JUN</span>
+                    <span class="topic">Air Quality & Health</span>
+                </div>
+                <div class="calendar-item">
+                    <span class="month">JUL</span>
+                    <span class="topic">Fire Risk Prevention</span>
+                </div>
+                <div class="calendar-item">
+                    <span class="month">AUG</span>
+                    <span class="topic">Drought Preparedness</span>
+                </div>
+                <div class="calendar-item">
+                    <span class="month">SEP</span>
+                    <span class="topic">Flood Response</span>
+                </div>
+                <div class="calendar-item">
+                    <span class="month">OCT</span>
+                    <span class="topic">Disease & Climate</span>
+                </div>
+                <div class="calendar-item">
+                    <span class="month">NOV</span>
+                    <span class="topic">Climate Data Analysis</span>
+                </div>
+                <div class="calendar-item">
+                    <span class="month">DEC</span>
+                    <span class="topic">Year in Review</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">🌍</span>
+                    <span>Climatovate</span>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:infoclimatovate@gmail.com">📧 infoclimatovate@gmail.com</a>
+                    <a href="https://whatsapp.com/channel/0029Vb7AtAUEawdyHh81Tc25" target="_blank">📱 WhatsApp Channel</a>
+                </div>
+                <p class="footer-copy">© 2026 Climatovate LTD | #ClimatovateResilience</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Additional Styles -->
+    <style>
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 60px 20px;
+            background: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 16px;
+            background: var(--light-green);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        
+        /* Next Workshop Section */
+        .next-workshop {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+        }
+        
+        .workshop-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .workshop-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        
+        .workshop-card h2 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .workshop-desc {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .workshop-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: left;
+        }
+        
+        .meta-icon {
+            font-size: 1.5rem;
+        }
+        
+        .meta-item strong {
+            display: block;
+            color: var(--text);
+        }
+        
+        .meta-item small {
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+        
+        .btn-large {
+            padding: 18px 40px;
+            font-size: 1.1rem;
+        }
+</style>
+span>
+  
+      /* WhatsApp Section */
+        .whatsapp-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+        
+        .whatsapp-card {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 50px;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .whatsapp-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .whatsapp-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+        
+        .whatsapp-subtitle {
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        
+        .benefit-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .benefit-item strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .benefit-item p {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            line-height: 1.4;
+            margin: 0;
+        }
+        
+        .whatsapp-join {
+            text-align: center;
+        }
+        
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: white;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37,211,102,0.5);
+        }
+        
+        .btn-whatsapp svg {
+            flex-shrink: 0;
+        }
+        
+        .or-text {
+            margin-top: 15px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        .qr-section {
+            text-align: center;
+        }
+        
+        .qr-container {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            display: inline-block;
+        }
+        
+        .qr-code {
+            width: 180px;
+            height: 180px;
+            border-radius: 8px;
+        }
+        
+        .qr-label {
+            color: var(--text);
+            font-size: 0.85rem;
+            margin-top: 12px;
+        }
+        
+        /* Calendar Section */
+        .calendar-section {
+            padding: 60px 20px;
+            background: white;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 12px;
+        }
+        
+        .calendar-item {
+            background: #f5f5f5;
+            padding: 15px 10px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .calendar-item:hover {
+            background: var(--light-green);
+        }
+        
+        .calendar-item.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .calendar-item .month {
+            display: block;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .calendar-item .topic {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            line-height: 1.3;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 40px 20px;
+        }
+        
+        .footer-content {
+            text-align: center;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-copy {
+            opacity: 0.6;
+            font-size: 0.85rem;
+        }
+
+        /* ========== MOBILE RESPONSIVE STYLES ========== */
+        
+        /* Tablet */
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .calendar-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .whatsapp-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+            
+            .qr-section {
+                margin-top: 30px;
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 600px) {
+            .hero {
+                padding: 40px 15px 50px;
+            }
+            
+            .logo {
+                font-size: 2.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+            
+            .hero-tagline {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+                border-radius: 12px;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                padding: 0 10px;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 24px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .features {
+                padding: 40px 15px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .feature-card {
+                padding: 25px 20px;
+                display: flex;
+                align-items: center;
+                text-align: left;
+                gap: 15px;
+            }
+            
+            .feature-icon {
+                font-size: 2rem;
+                margin-bottom: 0;
+            }
+            
+            .feature-card h3 {
+                margin-bottom: 5px;
+            }
+            
+            .next-workshop {
+                padding: 40px 15px;
+            }
+            
+            .workshop-card {
+                padding: 25px 20px;
+                border-radius: 16px;
+            }
+            
+            .workshop-card h2 {
+                font-size: 1.3rem;
+            }
+            
+            .workshop-meta {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+            
+            .meta-item {
+                width: 100%;
+                justify-content: flex-start;
+                background: #f9f9f9;
+                padding: 12px 15px;
+                border-radius: 10px;
+            }
+            
+            .btn-large {
+                padding: 16px 30px;
+                font-size: 1rem;
+            }
+            
+            .whatsapp-section {
+                padding: 40px 15px;
+            }
+            
+            .whatsapp-icon {
+                font-size: 2.5rem;
+            }
+            
+            .whatsapp-content h2 {
+                font-size: 1.4rem;
+            }
+            
+            .benefits-grid {
+                gap: 15px;
+            }
+            
+            .benefit-item {
+                background: rgba(255,255,255,0.1);
+                padding: 15px;
+                border-radius: 12px;
+            }
+            
+            .btn-whatsapp {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 24px;
+                font-size: 1rem;
+            }
+            
+            .qr-container {
+                padding: 15px;
+            }
+            
+            .qr-code {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .calendar-section {
+                padding: 40px 15px;
+            }
+            
+            .calendar-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            
+            .calendar-item {
+                padding: 12px 8px;
+            }
+            
+            .calendar-item .month {
+                font-size: 0.8rem;
+            }
+            
+            .calendar-item .topic {
+                font-size: 0.65rem;
+            }
+            
+            .footer {
+                padding: 30px 15px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        /* Small Mobile */
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .calendar-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .qr-code {
+                width: 130px;
+                height: 130px;
+            }
+        }
+    </style>
+    
+    <!-- Smooth Scroll -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
